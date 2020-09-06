@@ -1,21 +1,20 @@
 #!/bin/bash
-componente=$(yad --list \
-                 --title="https://www.atareao.es" \
-                 --height=200 \
-                 --width=250 \
-                 --center \
-                 --button=Acepter:0 \
-                 --button=Cancelar:1 \
-                 --text="Selecciona un componente para tu pizza:" \
-                 --checklist \
-                 --column="" \
-                 --column="Componente" \
-                 --column="Calorías" \
-                 1 "Jamón" 100 2 "Queso" 150 3 "Huevo" 125)
+opcion=$(yad --entry \
+             --title="https://www.atareao.es" \
+             --image=gtk-info \
+             --width=250 \
+             --height=80 \
+             --width=250 \
+             --button=Aceptar:0 \
+             --button="No quiero elegir ninguna opción":1 \
+             --center \
+             --text-align=center \
+             --entry-label="Selecciona una opción" \
+             --entry-text=1 2 3 4 5)
 ans=$?
 if [ $ans -eq 0 ]
 then
-    echo "Has elegido: ${componente}"
+    echo "Has elegido la opción: ${opcion}"
 else
-    echo "No has elegido ningún componente"
+    echo "No has elegido ninguna opción"
 fi

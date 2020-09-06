@@ -1,15 +1,18 @@
 #!/bin/bash
-numero=$(zenity --scale \
-                --title="https://www.atareao.es" \
-                --text="Elige un numero de 1 a 10" \
-                --min-value=1 \
-                --max-value=10 \
-                --value=3)
+color=$(yad --color-selection \
+            --title="https://www.atareao.es" \
+            --center \
+            --height=200 \
+            --width=100 \
+            --alpha \
+            --gtk-palette \
+            --expand-palette \
+            --palete=/etc/X11/rgb.txt \
+            --text="Selecciona un color:")
 ans=$?
 if [ $ans -eq 0 ]
 then
-    echo "Has elegido este numero: ${numero}"
+    echo "Has elegido este color: ${color}"
 else
-    echo "No has elegido ningún numero"
+    echo "No has elegido ningún color"
 fi
-

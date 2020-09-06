@@ -1,14 +1,15 @@
 #!/bin/bash
-color=$(zenity --color-selection \
-               --title="https://www.atareao.es" \
-               --height=200 \
-               --width=100 \
-               --show-palette \
-               --text="Selecciona un color:")
+directorio=$(yad --file \
+                 --title="https://www.atareao.es" \
+                 --center \
+                 --height=200 \
+                 --width=100 \
+                 --text="Selecciona un directorio:" \
+                 --directory)
 ans=$?
 if [ $ans -eq 0 ]
 then
-    echo "Has elegido este color: ${color}"
+    echo "Has elegido este directorio: ${directorio}"
 else
-    echo "No has elegido ningún color"
+    echo "No has elegido ningún directorio"
 fi

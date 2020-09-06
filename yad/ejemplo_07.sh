@@ -1,20 +1,20 @@
 #!/bin/bash
-componente=$(yad --list \
-                 --title="https://www.atareao.es" \
-                 --height=200 \
-                 --width=100 \
-                 --button=Aceptar:0 \
-                 --button=Cancelar:1 \
-                 --center \
-                 --text="Selecciona un componente para tu pizza:" \
-                 --radiolist \
-                 --column="" \
-                 --column="Componente" \
-                 1 "Jamón" 2 "Queso" 3 "Huevo")
+edad=$(yad --entry \
+           --title="https://www.atareao.es" \
+           --image=gtk-info \
+           --width=250 \
+           --height=80 \
+           --width=250 \
+           --button=Aceptar:0 \
+           --button="No te lo quiero decir":1 \
+           --center \
+           --numeric \
+           --text-align=center \
+           --text="Dime tu edad")
 ans=$?
 if [ $ans -eq 0 ]
 then
-    echo "Has elegido: ${componente}"
+    echo "Tu edad es: ${edad}"
 else
-    echo "No has elegido ningún componente"
+    echo "No me quiere decir su edad"
 fi
